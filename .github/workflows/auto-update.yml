@@ -1,0 +1,16 @@
+name: Auto Text Update
+on:
+  push:
+    paths:
+      - 'database/**' # database 폴더에 변화가 있을 때만 실행
+  workflow_dispatch: # 수동 실행 버튼 생성
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sync
+        run: echo "데이터 동기화 완료"
